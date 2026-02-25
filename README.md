@@ -2,7 +2,8 @@
 
 ### About me
 I am a **Data Scientist**
-Currently studying for a Data Science degree at BPP UNiverisuty
+
+Currently studying for a Data Science degree at BPP University
 
 ![ProfilePic](images/profilepic.jpeg)
 
