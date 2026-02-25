@@ -11,4 +11,4 @@ Currently studying for a Data Science degree at BPP University
 
 ## Projects
 My test portfolio repo for uni
-[Project 1] (https://github.com/john-paulmount/BPP-University-Data-Science-Degree---test-repo)
+[Project 1](https://github.com/john-paulmount/BPP-University-Data-Science-Degree---test-repo)
