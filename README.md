@@ -1,13 +1,15 @@
 # Data Scientist
 
 ### About me
-I am a **Data Scientist**
 
-Currently studying for a Data Science degree at BPP University
+I am an experienced **BI and Analytics Manager** with 20 Years in financial services, currently studying for a **Data Science Degree** at BPP University
 
 ![ProfilePic](images/profilepic.jpeg)
 
 ## Education
+
+Business and Quality Management Degree - Nottingham Trent Univeristy
+Data Science degree  - BPP University -  ongoing
 
 ## Projects
 My test portfolio repo for uni
