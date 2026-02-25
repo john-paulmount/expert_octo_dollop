@@ -1,1 +1,5 @@
-
+title: Data Science Portfolio 
+logo: /images/profilepic.jpeg
+description: Draft Portfolio
+show_downloads: true
+theme: jekyll-theme-minimal
