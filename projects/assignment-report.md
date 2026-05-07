@@ -187,17 +187,23 @@ Danceability captures how suitable a track is for rhythmic movement, based on te
 
 
 Task: Compress the following academic section.
+
 Constraints:
+
 •	Do not remove any methodological detail, assumptions, limitations, parameter choices, results, or interpretations.
 •	Do not summarise at a higher level or abstract away technical content.
 •	Preserve all analytical reasoning, justification of methods, and references to figures or results.
 •	Maintain third person academic tone.
 •	Do not add any additional information
+
 Approach:
+
 •	Combine sentences where ideas overlap.
 •	Remove redundancy, filler language, and narrative scaffolding.
 •	Increase information density by expressing the same ideas more concisely.
+
 Output:
+
 •	Return the fully rewritten compressed version only.
 •	Do not add new content or references.
 
