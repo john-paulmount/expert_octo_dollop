@@ -19,8 +19,11 @@ exploratory data analysis and unsupervised machine learning techniques.
 ## 1. Executive Summary
 
 Personal music listening behaviour is complex, habitual, and context dependent, yet is rarely examined using formal analytical techniques at the individual level. This project addresses the challenge of uncovering recurring patterns in personal music listening behaviour through unsupervised learning.  The analysis answers the central question of whether distinct listening day archetypes exist and whether these can be leveraged to support personalised recommendation outcomes.
+
 The dataset comprises event level streaming records extracted from Spotify’s Extended Streaming History export, spanning several years, enriched with audio and genre metadata sourced from Spotify’s developer ecosystem and a supplementary open source dataset. After ingestion and cleansing, individual listening events were aggregated to the day level and transformed into a structured feature set capturing temporal listening patterns (hour of day distributions), acoustic characteristics (Tempo, Valence and more), and artist preferences derived using TF IDF vectorisation and dimensionality reduction.  Particular attention was paid to ensuring that feature construction reflected behavioural patterns rather than total listening volume, allowing comparability between light and heavy listening days. 
+
 Given the unlabelled and exploratory nature of the data, K means clustering was selected as the primary modelling approach. Evaluation using silhouette analysis indicated that a three cluster solution provided an effective balance between internal validity and interpretability. The resulting clusters represent distinct listening day archetypes, differentiated by time of day listening behaviour, musical energy profiles, and artist composition. Principal Component Analysis confirms clear separation between clusters and supports interpretation of the dominant behavioural dimensions. Longitudinal analysis further reveals sustained shifts in cluster prevalence over time that align with contextual changes in account usage, indicating structural changes in listening behaviour rather than short term variability.
+
 The analytical findings were translated into a practical application through a cluster conditioned playlist generation process, producing three distinct, non overlapping playlists representative of each listening day archetype.  Overall, the project presents a reproducible and privacy aware framework for transforming personal behavioural data into interpretable segments and actionable recommendation outputs, illustrating the broader value of unsupervised learning for analysing complex, real world behavioural datasets.
 
 ---
@@ -35,8 +38,8 @@ Music listening habits offer insights into mood and behavioural patterns, suppor
 
 The dataset was sourced from a shared household Spotify account via Spotify’s export function. The full Extended Streaming History (Figure 1) was chosen over the 12-month subset to allow longitudinal analysis of changes in listening behaviour. After a 30-day processing period, Spotify provided a time-limited download link (Figure 2) to access ten JSON files spanning 2013–2026, which were saved locally to avoid expiration. 
 
-figure 1
-figure 2
+![Download data](../images/figure1 download personal spotify data.png)
+![Download email](../images/figure 2 download email and link.png)
 
 To enrich the dataset, a Spotify for Developers account was configured to retrieve artist genre labels and track-level audio features (e.g. tempo, danceability, loudness. Appendix 3) through the Spotify Web API (Figures 3 and 4). This required creating a Spotify application (Client ID and Secret) to obtain access tokens, with credentials managed on the developer dashboard. 
 
