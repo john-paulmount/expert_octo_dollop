@@ -12,5 +12,4 @@ Business and Quality Management Degree - Nottingham Trent Univeristy
 Data Science degree  - BPP University -  ongoing
 
 ## Projects
-My test portfolio repo for uni
-[Project 1](https://github.com/john-paulmount/BPP-University-Data-Science-Degree---test-repo)
+[Spotify Analysis Project](projects/spotify-analysis.html)
