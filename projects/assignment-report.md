@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Data Science Assignment – Spotify Listening Analysis
+title: Spotify Listening Behaviour Analysis -  Full Report
 ---
 
 ← **[Back to main portfolio](../index.html)**
 
 **[Read the project overview here](spotify-analysis.html)**
 
-# Data Science Assignment: Spotify Listening Analysis
+# Spotify Listening Behaviour Analysis -  Full Report
 
 ## Abstract
 
