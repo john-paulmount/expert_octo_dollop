@@ -37,7 +37,9 @@ Spotify Extended Streaming History provided via GDPR export.
 
 ---
 
-## Full code
+### Full Jupyter Notebook
 
-The full notebooks and Python files are available here:  
-https://github.com//john-paulmount/expert_octo_dollop
+The complete Jupyter Notebook containing all code, data preparation,
+and model outputs used in this analysis is available here:
+
+[View the full Jupyter Notebook](projects/notebook/spotify_analysis.ipynb)
