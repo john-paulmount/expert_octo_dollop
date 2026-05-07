@@ -13,4 +13,4 @@ Data Science degree  - BPP University -  ongoing
 
 ## Projects
 [Spotify Analysis Project](projects/spotify-analysis.html)
-[Spotify Analysis Project](projects/spotify-analysis.html)
+[Spotify Analysis Project](projects/assignment-report.html)
