@@ -43,11 +43,13 @@ The dataset was sourced from a shared household Spotify account via Spotify’s 
 
 To enrich the dataset, a Spotify for Developers account was configured to retrieve artist genre labels and track-level audio features (e.g. tempo, danceability, loudness. Appendix 3) through the Spotify Web API (Figures 3 and 4). This required creating a Spotify application (Client ID and Secret) to obtain access tokens, with credentials managed on the developer dashboard. 
 
-figure 3
-figure 4
+![dashboard](../images/figure 3 spotify app dashboard.png)
+![dashboard detail](../images/figure 4 spotify app dashboard details.png)
 
 Although Teradata RDBMS was considered for its ingestion and feature-engineering capabilities, its advantages (scalability, performance, enterprise security) were unnecessary given the dataset’s modest size and personal context. Python was chosen for its robust analytics ecosystem and ability to handle the entire workflow, from ingestion through to cleansing, EDA, modelling, validation, and output generation. While a hybrid Teradata–Python approach can be beneficial for larger scale data (Muddarla & Vatti, 2024), Python alone sufficed for this analysis. 
+
 Corporate certificate restrictions prevented direct use of the Spotify API, necessitating a contingency for metadata enrichment. A two-year-old track metadata dataset from HuggingFace (maharshipandya/spotify-tracks-dataset; c125 genres, Appendix 1–2) was used, despite partial coverage (c27.5% match rate).
+
 Ethically, the study was confined to the author’s own listening data to minimise privacy risk and avoid inferring other individuals’ behaviour. As behavioural data can reveal personal routines, such as consistent listening times revealing commuting patterns, outputs were restricted to aggregated forms (day-level summaries, cluster profiles) rather than raw timestamps or location proxies. Spotify API credentials were secured using a password-manager-style method (Spotipy package) to minimise exposure risk and ensure compliance with privacy standards.  While this project is personal, similar pipelines (Python for ETL, API integration) are widely applicable in enterprise data environments.
 
 
@@ -57,20 +59,19 @@ Ethically, the study was confined to the author’s own listening data to minimi
 
 Spotify’s Extended Streaming History JSON files were consolidated into an event-level dataset by parsing all Streaming_History_Audio_*.json files and normalising nested structures (Figure 5). 
 
-figure 5
-figure 6
+![json](../images/figures 5 and 6  json .png)
 
 Following best practice for behavioural timestamp analysis (Smith, 2020), timestamps were converted from UTC to Europe/London local time to derive consistent temporal features (date, hour, day-of-week), and playback duration was converted from milliseconds to minutes (Figure 7). Device information was simplified into broad categories based on platform and user-agent strings to aid cluster interpretation. 
 
-figure 7
+![convert time](../images/figure 7 convert time.png)
 
 The dataset was filtered to music listening only by excluding podcast and video entries (identified via episode fields and file provenance), ensuring the clustering task reflected music behaviour (Figure 8).  
 
-figure 8
+![music only](../images/figure 8 music only.png)
 
 These preprocessing steps improved construct validity by focusing on comparable events, reduced noise from mixed media content, and yielded stable, standardised features suitable for unsupervised modelling without ground-truth labels. The end-to-end data engineering pipeline is summarised in Figure 9. 
 
-figure 9
+![pipeline](../images/figure 9 - pipeline.png)
 
 ---
 
@@ -78,66 +79,69 @@ figure 9
 
 Clustering was chosen as the primary analytical approach because the dataset is unlabelled, high-dimensional, and exploratory. With no predefined target labels, supervised learning was inappropriate. Unsupervised clustering groups observations by feature similarity, allowing latent structures to emerge without prior assumptions (Hastie et al., 2017). This makes clustering particularly suitable for personal music data, where recurring listening modes may exist but are not explicitly labelled. 
 Choosing the right clustering technique was critical for validity and interpretability.
+
 K-means was considered due to its simplicity, speed, and effectiveness when clusters are of regular shape and size, making it suitable for patterns anchored around consistent days and times and scalable across multi-year data. However, K-means can be distorted by outliers, like unusually short or long listening days, so alternative methods were evaluated. Figure 10 provides an author-compiled comparison of techniques, highlighting assumptions (cluster shape), noise sensitivity, interpretability, and complexity for each (Jain, 2010). 
 
-figure 10
+![clustering table](../images/figure 10 clustering table.png)
 
 This comparative evaluation, alongside the scikit-learn packages ability to support the selection of K through elbow and silhouette plots, guided the decision to proceed with K-means, acknowledging its limitations while leveraging its practicality. 
 
 Exploratory Data Analysis confirmed data quality and guided feature design. A time series of daily listening minutes identified a gap in 2018 due to use of another platform, and a sharp increase from 2019 onward coinciding with a transition to a shared account. 
 
-figure 11
-figure 12
+![daily listened](../images/figure 11 daily minutes listened.png)
+![listened over time](../images/figure 12 daily listening over time.png)
 
 A heatmap of listening by day-of-week and hour-of-day (with minutes normalised to percentages) showed listening concentrated in evenings, dinner hours, and late nights, particularly on weekends, justifying inclusion of a 24-hour temporal distribution as a feature.
 
-figure 13
-figure 14
+![heatmap code](../images/figure 13 heatmap code.png)
+![heatmap](../images/figure 14 heatmap.png)
 
 Histograms of key audio features (danceability, energy, valence, tempo) indicated distributions suitable for distance-based clustering, with no extreme skew or anomalies (detailed feature descriptions in Appendix). 
+
 Feature Engineering was performed by transforming daily listening data into a modelling dataset combining temporal, acoustic, and artist-preference features. Temporal features captured each day’s distribution of listening across 24 hours ensuring heavy and light listening days remain comparable by pattern. Acoustic features summarised each day’s audio profile using the mean and standard deviation of audio attributes.
 
-figure 15
+![feature engineering](../images/figure 15 feature engineering.png)
 
 To address high artist cardinality (>10,000 unique artists), a day by artist matrix was constructed, with each day encoded as a high dimensional artist incidence vector. TF–IDF vectorisation was applied to down-weight commonly listened to artists and emphasise distinctive ones, and Truncated SVD compressed this representation to 30 dimensions, ensuring days with similar artist patterns remained close even without exact overlaps (Hastie et al., 2017). 
 
-figure 16
+![TF IDF](../images/figure 16 TF IDF.png)
 
 StandardScaler was then applied to produce z-score scaling to normalize value ranges prior to modelling. 
 
-figure 17
+![silhouette](../images/figure 17 silhouette.png)
 
 K-means clustering was applied using these features. Silhouette analysis (Figure 18) indicated that while K=2 achieved the highest mean silhouette score, K=3 yielded a comparable value with greater behavioural interpretability, by contrast, higher K values showed rapidly declining silhouettes indicating diminishing cluster cohesion and separation (Shutaywi & Kachouie, 2021).  A three-cluster solution was selected as an optimal balance between cluster validity and meaningful segmentation.  
 
-figure 18
+![elbow](../images/figure 18 elbow.png)
 
 The clusters were interpreted and labelled based on distinguishing centroid characteristics such as time of day peaks and weekday vs weekend dominance, rather than numeric labels (Figure 19). 
 
-figure 19
+![cluster names](../images/figure 19 cluster names.png)
 
 Principal Component Analysis (PCA) of the clustered data (Figure 20) confirmed clear separation among clusters, driven primarily by PC1 (late-night vs evening-centric days) and PC2 (energy/valence differences), consistent with expected behavioural dimensions. 
 
-figure 20
+![PCA](../images/figure 20 pcA.png)
 
 Analysing cluster membership over time (Figure 21) revealed significant shifts in listening behaviour.
 
-figure 21
+![clusters over time](../images/figure 21 clusters over time.png)
 
 The transition to a shared household account in early 2019 corresponded to a persistent change in dominant listening-day types, a structural shift rather than a transient fluctuation. Other major life events including the birth of a first child and a household relocation, coincided with periods of reduced diversity in day types and a greater predominance of late-night, lower-energy listening days (Figure 22). Incorporating these contextual overlays exemplifies a mixed-methods approach, where qualitative context enhances interpretation of quantitative outputs without altering the underlying model results (Creswell & Plano Clark, 2018; Hands, 2022). 
 
-figure 22
+![personal overlay](../images/figure 22 personal overlay.png)
 
 To demonstrate practical utility, a cluster-conditioned playlist generation process was implemented. Each day’s cluster label was first mapped to its individual track records, tagging tracks with the behavioural context of their day. For each cluster, unique track–artist pairs were aggregated along with their audio feature profiles. The cluster’s centroid in audio feature space was calculated, and cosine similarity was used to rank tracks by proximity to this centroid, a common approach in content-based music recommendation (Bonnin & Jannach, 2014). The top 30 tracks per cluster were then selected, with no track repeated across playlists, to create three distinct, non-overlapping playlists, each representing one listening-day archetype (Figures 23–25). 
 
-figure 23
-figure 24
-figure 25
+![playlist cluster 0](../images/figure 23 playlist cluster 0.png)
+![playlist cluster 1](../images/figure 24 playlist cluster 1.png)
+![playlist cluster 1](../images/figure 25 playlist cluster 2.png)
 
 ---
 
 ## 6. Reflections and recommendation
 
 This project met its objectives by applying a reproducible, modular, and privacy-preserving workflow to identify distinct listening-day archetypes from personal Spotify data through unsupervised clustering. These archetypes proved to be interpretable and behaviourally meaningful, especially when overlaid with contextual life events that explained sustained structural shifts in listening patterns. The labelled outputs and visualisations allow concise communication of the evolution of listening behaviours over time, and the analysis was further operationalised through cluster-conditioned playlist generation to demonstrate practical value beyond description. 
+
 However, key limitations must be acknowledged. Restricted Spotify API access and reliance on a partially complete static dataset for audio metadata constrained feature coverage, though core behavioural patterns remained robust. Looking ahead, future work should prioritise direct API integration to improve data richness and consider re-running the segmentation on separate time periods (notably pre vs post 2019) to account for observed structural changes in listening behaviour. These enhancements would build on the current framework’s strengths and further refine the personalised music recommendation outcomes derived from the analysis. 
 
 ---
