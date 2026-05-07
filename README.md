@@ -1,4 +1,4 @@
-# Data Scientist
+# John-Paul Mount Personal Portfolio
 
 ### About me
 
