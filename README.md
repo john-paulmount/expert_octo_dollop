@@ -16,5 +16,4 @@ Data Science degree  - BPP University -  ongoing
 
 [Spotify Analysis Project_Full_Report](projects/assignment-report.html)
 
-- Data Science Assignment – Spotify Listening Analysis  
-  projects/assignment-report.html
+
