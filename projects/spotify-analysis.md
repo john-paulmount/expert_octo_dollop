@@ -3,6 +3,8 @@ layout: default
 title: Spotify Listening Behaviour Analysis
 ---
 ← **[Back to main portfolio](../index.html)**
+[Spotify Analysis Project_Full_Report](projects/assignment-report.html)
+
 ## Project overview
 
 This project analyses personal Spotify listening history to identify
