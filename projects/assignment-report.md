@@ -270,3 +270,21 @@ Gaussian Mixture (GMM)
 This prompt was used to help create the table displayed in figure 10 which compares the different clustering techniques
 
 
+## References
+
+Achanta, A. (2023) Data Democratization: Empowering Non-Technical Users with Self-Service BI Tools and Techniques to Access and Analyze Data Without Heavy Reliance on IT Teams. International Journal of Computer Trends and Technology, 71(8), pp. 39–46. doi: 10.14445/22312803/IJCTT V71I8P106.
+Al Naqbi, H., Bahroun, Z. and Ahmed, V. (2024) ‘Enhancing work productivity through generative artificial intelligence: A comprehensive literature review’, Sustainability, 16(3), 1166. https://doi.org/10.3390/su16031166
+Bonnin, G. and Jannach, D. (2014) ‘Automated generation of music playlists: survey and experiments’, ACM Computing Surveys, 47(2), Article 26.
+Creswell, J. W. and Plano Clark, V. L. (2018) Designing and Conducting Mixed Methods Research. 3rd edn. Thousand Oaks, CA: SAGE Publications.
+Davenport, T.H. and Harris, J.G. (2017) Competing on Analytics: The New Science of Winning. Boston, MA: Harvard Business School Press.
+Few, S. (2013) Information Dashboard Design: Displaying Data for At a Glance Monitoring. 2nd edn. Burlingame, CA: Analytics Press.
+Ghosh, P. (2024) Self-Service Analytics: Pros and Cons. DATAVERSITY, 8 October. Available at: https://www.dataversity.net/articles/self-service-analytics-pros-and-cons/ (Accessed: 16 February 2026).
+Hands, A. S. (2022) ‘Integrating quantitative and qualitative data in mixed methods research: An illustration’, The Canadian Journal of Information and Library Science, 45(1), pp. 1–20.
+Hastie, T., Tibshirani, R. and Friedman, J. (2017) The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2nd edn. New York: Springer.
+Jain, A. K. (2010) ‘Data clustering: 50 years beyond K-means’, Pattern Recognition Letters, 31(8), pp. 651–666.
+Khatri, V. and Brown, C.V. (2010) ‘Designing data governance’, Communications of the ACM, 53(1), pp. 148–152.
+Muddarla, B. and Vatti, P. R. (2024) ‘Machine learning in cloud environments: leveraging SQL and Python for big data analytics’, Nanotechnology Perceptions, 20(7), pp. 12–21.
+Shutaywi, M. and Kachouie, N. N. (2021) ‘Silhouette analysis for performance evaluation in machine learning with applications to clustering’, Entropy, 23(6), p. 759. https://doi.org/10.3390/e23060759
+Pandya, M. (2023) Spotify tracks dataset. Hugging Face. Available at: https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset (Accessed: 7 May 2026).
+Vanam, L. (2023) ‘Strategic data democratisation: Enabling business users through self service business intelligence platforms’, Journal of Emerging Technologies and Innovative Research, 10(7), pp. 245–256.
+
