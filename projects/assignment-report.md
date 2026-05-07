@@ -148,5 +148,125 @@ However, key limitations must be acknowledged. Restricted Spotify API access and
 
 ## Appendix
 
-Supporting materials and the full Jupyter Notebook are provided below.
-``
+**Appendix 1 - HuggingFace data showing content of the enriched data**
+
+![appendix 1 huggingface 1](../images/appendix 1 huggingface 1.png)
+![appendix 1 huggingface 2](../images/appendix 1 huggingface 2.png)
+
+
+**Appendix 2 - HuggingFace column description of the enriched data**
+
+![appendix 2 huggingface](../images/appendix 2 huggingface.png)
+
+
+**Appendix 3 - EDA feature analysis**
+
+Analysis of the audio feature distributions indicates that listening behaviour is characterised by rhythmically engaging and energetically driven music, with meaningful variation in emotional tone. Valence values span the full range, though with a greater concentration in mid to high scores, suggesting a general preference for neutral to emotionally positive tracks alongside a smaller proportion of more introspective listening. Tempo is predominantly centred within the mid range, indicating a focus on steady, accessible rhythms rather than extremely slow or fast music. This is complemented by a strong skew towards high energy, implying that tracks are typically intense, loud, and stimulating, with low energy music forming only a minor component of overall consumption. Danceability further reinforces this pattern, exhibiting a clear clustering around medium to high values, which reflects a consistent preference for rhythmically structured and groove oriented tracks. Taken together, these distributions suggest that listening behaviour is primarily oriented towards energetic, rhythm focused music suitable for everyday functional contexts, while still accommodating emotional diversity.
+
+![appendix 3 valence](../images/appendix 3 valence.png)
+
+Valence represents the emotional positivity of a track on a scale from 0 to 1. The distribution shows that listening behaviour spans the full emotional range, with a noticeable concentration in mid to high valence values. This suggests a preference towards neutral and emotionally positive music, while lower valence (sad or melancholic) tracks are present but less frequent. Overall, the distribution indicates diverse emotional consumption rather than reliance on a single mood profile
+
+![appendix 3 tempo](../images/appendix 3 tempo.png)
+
+Tempo describes the speed of a musical track in beats per minute (BPM). The distribution indicates a strong preference for mid tempo music, with the majority of tracks falling between approximately 90 and 130 BPM. Slower tempos are present but less frequent, while very high tempo tracks form a small tail of the distribution. This suggests that listening behaviour is primarily oriented towards steady, accessible rhythms suitable for everyday contexts, rather than extremes of either low or high tempo
+
+![appendix 3 energy](../images/appendix 3 energy.png)
+
+Energy reflects the perceived intensity and activity of a track, incorporating elements such as loudness, timbral density, and dynamic range. The distribution is heavily weighted towards high energy values, indicating that listening behaviour is predominantly oriented towards intense and engaging music. Low energy tracks are comparatively rare, suggesting that calm or ambient listening forms a minor component of overall music consumption.
+
+![appendix 3 danceability](../images/appendix 3 danceability.png)
+
+Danceability captures how suitable a track is for rhythmic movement, based on tempo stability, beat strength, and regularity. The distribution shows a strong concentration in mid to high danceability values, indicating a clear preference for rhythmically structured and groove oriented music. Tracks with very low danceability are relatively rare, suggesting that irregular or free tempo music plays a limited role in overall listening behaviour
+
+
+**Appendix 4 – AI prompts**
+
+
+**1)	Supporting the writing of documentation by suggesting formatting, summarisation, and grammar checks**
+
+
+Task: Compress the following academic section.
+Constraints:
+•	Do not remove any methodological detail, assumptions, limitations, parameter choices, results, or interpretations.
+•	Do not summarise at a higher level or abstract away technical content.
+•	Preserve all analytical reasoning, justification of methods, and references to figures or results.
+•	Maintain third person academic tone.
+•	Do not add any additional information
+Approach:
+•	Combine sentences where ideas overlap.
+•	Remove redundancy, filler language, and narrative scaffolding.
+•	Increase information density by expressing the same ideas more concisely.
+Output:
+•	Return the fully rewritten compressed version only.
+•	Do not add new content or references.
+
+
+
+**2)	Assistance with debugging code or reviewing syntax in notebooks/scripts**
+
+Many back and forth conversations were had with Co-Pilot regarding the best way to write code syntax in python and debugging where not working.  Extensive conversations were had regarding ways to resolve the security issues had when the Spotify certificate was not accepted by corporate security embedded within the laptop used for the project.
+
+
+
+This is an example of the kind of prompts and responses which were being asked
+
+prompt
+If I ran this code in python, should I be seeing any outputs? 
+I get the tick to say it has run but shows 0.0s and no output
+
+def run_eda(plays: pd.DataFrame, out_dir: str): """Save simple EDA plots + CSV summarizing coverage and top artists.""" ensure_dir(out_dir) # Daily minutes daily = plays.groupby("local_date")["min_played"].sum().reset_index() plt.figure(figsize=(12,4)) plt.plot(pd.to_datetime(daily["local_date"]), daily["min_played"]) plt.title("Daily Music Minutes") plt.xlabel("Date"); plt.ylabel("Minutes") savefig(os.path.join(out_dir, "eda_daily_minutes.png")); plt.close() # Top 20 artists top_art = (plays.groupby("artist_name")["min_played"] .sum().sort_values(ascending=False).head(20)) plt.figure(figsize=(8,8)); top_art.sort_values().plot(kind="barh") plt.title("Top 20 Artists (by minutes)"); plt.xlabel("Minutes") savefig(os.path.join(out_dir, "eda_top_artists.png")); plt.close()
+
+Response
+
+Short answer:
+If you only ran the cell that defines run_eda(...), then no — you won’t see any output, and a runtime like 0.0s is completely normal. That just means Python compiled the function definition and exited. You only get outputs when you call the function and it successfully writes files / prints.
+
+
+
+**3)	Can you provide a list of 10 peer reviewed academic sources that support the argument I am making in the following paragraph.  Please provide working links to each of the pieces of literature where can be found online.**
+
+This was a commonly used prompt designed to provide reading around the subject which was being discussed through various sections of the report.
+
+
+**4)	Can you summarise this comparison of clustering methods into a simple table ready to use in a uni assignment so need to be clear, concise and well labelled. 
+Method  / Advantages (Pros) /  Disadvantages (Cons)  / Best use cases**
+
+K-Means 
+• Simple & fast to implement; efficient on large datasets .
+• Works well if clusters are well-separated, compact, and roughly spherical in shape .
+• Easy to interpret results (cluster centroids are mean profiles of days). 
+• Must pre-specify K (number of clusters) in advance ; choosing the “right” K can be challenging (can use Elbow method or silhouette analysis).
+• Assumes clusters have similar size/density; struggles with non-spherical or unequal-sized clusters 
+.• Sensitive to outliers – unusual days can distort the means and pull a cluster centroid . 
+
+Hierarchical (Agglomerative) 
+• No need to choose K upfront – can decide clusters by cutting the dendrogram at an appropriate level.
+• Reveals a hierarchy of clusters (relationships between day types), which aids interpretation.
+• Can find clusters at various scales (broad vs specific patterns) in one run.
+• Works with many distance metrics & can handle different shapes depending on linkage method. 
+• Computationally expensive for large datasets (merging clusters is O(n) or worse) ; not suitable for very large or real-time use.
+• Results can be harder to visualize on very large data (dendrograms get complex).
+• No automatic “noise” handling – every point gets clustered (unless you manually cut the tree to isolate outliers).
+• Choice of linkage and distance metric can affect results; may need experimentation. 
+
+DBSCAN (Density-Based) 
+• No preset K required – finds the number of clusters automatically based on data density .• Can discover irregularly shaped clusters (not confined to circles/ellipses) – useful if day patterns vary in complex ways.
+• Identifies outliers as noise instead of forcing them into clusters – good for capturing atypical days .
+• Intuitive idea of clusters as areas of high listener activity density (e.g., days with consistently high listening form a cluster). 
+• Parameter tuning required (distance ε and minPts); results sensitive to these choices and may require trial and error to get right.
+• Struggles in high-dimensional data – hard to find a meaningful density threshold when each day has 50+ features .
+• If clusters have very different densities, a single ε might merge or split clusters inappropriately.
+• The outcome can be less stable for points near cluster boundaries (e.g., borderline days might flip between being labelled noise or part of a cluster depending on minor parameter changes).
+
+Gaussian Mixture (GMM) 
+• Soft clustering: yields probabilities for cluster membership – captures uncertainty and overlapping clusters .
+• Can model clusters with different shapes and sizes by using covariance (not restricted to equal-sized spheres) .
+• More statistically flexible: effectively a form of density modelling. If your “day types” aren’t cleanly separated, GMM can still model them as overlapping Gaussians. 
+• Must choose number of Gaussian components (clusters) in advance (though methods like BIC/AIC can guide this).
+• Computationally heavier than K-Means – slower on larger datasets or with many features • Assumes clusters are roughly Gaussian in feature distribution; may not fit well if real clusters are very non-Gaussian (or requires using multiple Gaussians per cluster).
+• Results are more complex to interpret (requires understanding of probabilities and covariance).
+
+This prompt was used to help create the table displayed in figure 10 which compares the different clustering techniques
+
+
