@@ -12,5 +12,6 @@ Business and Quality Management Degree - Nottingham Trent Univeristy
 Data Science degree  - BPP University -  ongoing
 
 ## Projects
-[Spotify Analysis Project](projects/spotify-analysis.html)
-[Spotify Analysis Project](projects/assignment-report.html)
+[Spotify_Analysis_Project_Overview](projects/spotify-analysis.html)
+
+[Spotify Analysis Project_Full_Report](projects/assignment-report.html)
