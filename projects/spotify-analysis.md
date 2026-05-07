@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Spotify Listening Behaviour Analysis
+title: Spotify Listening Behaviour Analysis - Overview
 ---
 ← **[Back to main portfolio](../index.html)**
 
