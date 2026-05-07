@@ -276,6 +276,15 @@ Gaussian Mixture (GMM)
 This prompt was used to help create the table displayed in figure 10 which compares the different clustering techniques
 
 
+
+### Full Jupyter Notebook
+
+The complete Jupyter Notebook containing all code and outputs is
+available here:
+
+projects/notebook/spotify_listening_analysis.ipynb
+
+
 ## References
 
 Achanta, A. (2023) Data Democratization: Empowering Non-Technical Users with Self-Service BI Tools and Techniques to Access and Analyze Data Without Heavy Reliance on IT Teams. International Journal of Computer Trends and Technology, 71(8), pp. 39–46. doi: 10.14445/22312803/IJCTT V71I8P106.
