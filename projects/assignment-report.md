@@ -3,7 +3,7 @@ layout: default
 title: Data Science Assignment – Spotify Listening Analysis
 ---
 
-← ../index.html
+← **[Back to main portfolio](../index.html)**
 
 # Data Science Assignment: Spotify Listening Analysis
 
