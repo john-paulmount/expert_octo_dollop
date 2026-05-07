@@ -5,7 +5,7 @@ title: Data Science Assignment – Spotify Listening Analysis
 
 ← **[Back to main portfolio](../index.html)**
 
-**[Read the full report here](spotify-analysis.html)**
+**[Read the project overview here](spotify-analysis.html)**
 
 # Data Science Assignment: Spotify Listening Analysis
 
