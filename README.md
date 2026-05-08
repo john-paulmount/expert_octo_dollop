@@ -15,10 +15,8 @@ and reproducible methods.
 <img src="images/profilepic.jpeg" width="180" alt="Profile photo">
 
 
-I am an experienced **BI and Analytics Manager** with 20 years’ experience in
-financial services, currently studying for a **Data Science degree at BPP University**.
-My professional background informs a strong focus on analytical clarity,
-governance, and decision‑focused insight.
+I am an experienced **Business Intelligence and Analytics Manager** with around two decades of experience in financial services, currently completing a **Data Science degree at BPP University**. Alongside academic study, I have led analytical teams and work closely with senior stakeholders, translating complex data into clear, defensible insight that supports strategic decision‑making. My approach places strong emphasis on analytical clarity, explainability, and data governance, reflecting the standards required in regulated environments.
+Across this portfolio, I apply data‑science techniques using **Python** (including pandas, NumPy, scikit‑learn and matplotlib), supported by **SQL** for data extraction and transformation, and established BI tools where appropriate. The work demonstrates an ability to bridge academic methods with real‑world constraints, balancing statistical rigour with practical considerations such as data quality, interpretability, and stakeholder understanding.
 
 ---
 
