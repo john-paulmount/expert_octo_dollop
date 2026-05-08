@@ -1,17 +1,32 @@
-### About me
+## Overview
 
-<img src="images/profile.jpg" width="200" alt="Profile photo">
+This portfolio presents data science coursework and applied analytical projects
+completed as part of the **Data Science degree at BPP University**.
 
-I am an experienced **BI and Analytics Manager** with 20 Years in financial services, currently studying for a **Data Science Degree** at BPP University
+The emphasis is on clear, explainable analysis, sound statistical reasoning,
+and reproducible methods.
+
+---
+
+## About me
+
+<img src="images/profilepic.jpg" width="180" alt="Profile photo">
+
+I am an experienced **BI and Analytics Manager** with 20 years’ experience in
+financial services, currently studying for a **Data Science degree at BPP University**.
+My professional background informs a strong focus on analytical clarity,
+governance, and decision‑focused insight.
+
+---
 
 ## Education
 
-Business and Quality Management Degree - Nottingham Trent Univeristy
-Data Science degree  - BPP University -  ongoing
+- **Business and Quality Management** – Nottingham Trent University  
+- **Data Science (BSc)** – BPP University (ongoing)
+
+---
 
 ## Projects
-[Spotify_Analysis_Project_Overview](projects/spotify-analysis.html)
 
-[Spotify Analysis Project_Full_Report](projects/assignment-report.html)
-
-
+- [Spotify Analysis – Project Overview](projects/spotify-analysis.html)  
+- [Spotify Analysis – Full Report](projects/assignment-report.html)
