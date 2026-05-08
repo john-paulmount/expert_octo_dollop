@@ -1,5 +1,5 @@
 
-<img src="images/profile.jpg" width="200">
+<img src="images/profile.jpg" width="200" alt="Profile photo">
 
 ### About me
 
