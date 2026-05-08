@@ -2,3 +2,7 @@ title: Data Science Portfolio
 description:  Portfolio
 show_downloads: true
 
+remote_theme: "mmistakes/minimal-mistakes"
+
+plugins:
+  - jekyll-include-cache
