@@ -1,10 +1,13 @@
+---
+layout: home
+title: Data Science Portfolio
+---
+
 # John-Paul Mount Personal Portfolio
 
 ### About me
 
 I am an experienced **BI and Analytics Manager** with 20 Years in financial services, currently studying for a **Data Science Degree** at BPP University
-
-![ProfilePic](images/profilepic.jpeg)
 
 ## Education
 
