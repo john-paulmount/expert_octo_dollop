@@ -1,7 +1,6 @@
+### About me
 
 <img src="images/profile.jpg" width="200" alt="Profile photo">
-
-### About me
 
 I am an experienced **BI and Analytics Manager** with 20 Years in financial services, currently studying for a **Data Science Degree** at BPP University
 
