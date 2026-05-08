@@ -1,4 +1,4 @@
-# John‑Paul Mount – Personal Portfolio
+<h1 style="display:none;">John‑Paul Mount – Personal Portfolio</h1>
 
 ## Overview
 
