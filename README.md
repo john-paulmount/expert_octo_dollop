@@ -10,7 +10,8 @@ and reproducible methods.
 
 ## About me
 
-<img src="images/profilepic.jpg" width="180" alt="Profile photo">
+<img src="images/profilepic.jpeg" width="180" alt="Profile photo">
+
 
 I am an experienced **BI and Analytics Manager** with 20 years’ experience in
 financial services, currently studying for a **Data Science degree at BPP University**.
