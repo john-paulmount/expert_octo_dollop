@@ -1,4 +1,3 @@
-# John-Paul Mount Personal Portfolio
 
 <img src="images/profile.jpg" width="200">
 
