@@ -1,8 +1,3 @@
----
-layout: home
-title: Data Science Portfolio
----
-
 # John-Paul Mount Personal Portfolio
 
 ### About me
