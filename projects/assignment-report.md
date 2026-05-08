@@ -282,7 +282,7 @@ This prompt was used to help create the table displayed in figure 10 which compa
 The complete Jupyter Notebook containing all code, data preparation,
 and model outputs used in this analysis is available here:
 
-[View the full Jupyter Notebook](projects/notebook/spotify_analysis.ipynb)
+[View the full Jupyter Notebook](notebook/spotify_analysis.ipynb)
 
 
 ## References
