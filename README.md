@@ -1,3 +1,5 @@
+# John‑Paul Mount – Personal Portfolio
+
 ## Overview
 
 This portfolio presents data science coursework and applied analytical projects
