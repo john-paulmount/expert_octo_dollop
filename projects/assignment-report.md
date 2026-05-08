@@ -280,9 +280,14 @@ This prompt was used to help create the table displayed in figure 10 which compa
 ### Full Jupyter Notebook
 
 The complete Jupyter Notebook containing all code, data preparation,
-and model outputs used in this analysis is available here:
+and model outputs used in this analysis is provided below.
 
-[View the full Jupyter Notebook](notebook/spotify_analysis.ipynb)
+**Readable version (recommended):**  
+[View notebook on GitHub](https://github.com/john-paulmount/expert_octo_dollop/blob/main/projects/notebook/spotify_analysis.ipynb)
+
+**Raw file:**  
+[Download notebook (.ipynb)](notebook/spotify_analysis.ipynb)
+
 
 
 ## References
